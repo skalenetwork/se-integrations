@@ -1,0 +1,5 @@
+type MyToken @entity {
+  id: ID!
+  owner: Bytes!
+  tokenValue: BigInt!
+}

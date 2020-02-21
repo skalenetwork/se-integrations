@@ -6,17 +6,18 @@
  */
 
 let HDWalletProvider = require("truffle-hdwallet-provider");
+require('dotenv').config();
 
 //https://skale.network/developers/ for SKALE documentation
 //Provide your wallet private key
-let privateKey = "<SKALE_PRIVATE_KEY";
+let privateKey = process.env.PRIVATE_KEY;
 
 //Provide your SKALE endpoint address
-let skale = "http://<SKALE_NODE_IP:PORT>";
+let skale = process.env.SKALE_CHAIN;
 
 module.exports = {
     networks: {
-        ganache: {
+        development: {
             host: "127.0.0.1",
             port: 8545,
             network_id: "*"
@@ -26,5 +27,9 @@ module.exports = {
             gasPrice: 0,
             network_id: "*"
         }
-    }
+    },
+    compilers: {
+        solc: {
+        }
+      }
 }
