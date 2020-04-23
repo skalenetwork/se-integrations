@@ -192,7 +192,7 @@ yarn run redeploy-local
 
 +      ethereum: 'skale:http://YourSKALEChainIP:YourSKALEChainPort'
 
-### 3. Chain SKALE_Chain variable in .env
+### 3. Change SKALE_Chain variable in .env
 
 ### 4. Execute the Graph test with network SKALE
 
