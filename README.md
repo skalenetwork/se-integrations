@@ -223,7 +223,7 @@ http://faucet.skale.network/
 **Execute:**
 
 ```bash
-
+truffle test test/myToken.test.js
 ```
 
 If test runs fine it means SKALE Chain is working. IMA and FileStorage tests will be added eventually. 
