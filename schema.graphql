@@ -1,5 +1,27 @@
-type MyToken @entity {
+type MyMemoryToken @entity {
   id: ID!
-  owner: Bytes!
-  tokenValue: BigInt!
+  from: Bytes!
+  tokenURI: String!,
+  player: Player!
+  token: Token!
+}
+
+type MyMemoryTokenMeta @entity {
+  id: ID!
+  totalPlayerCount: BigInt!
+}
+
+type Player @entity {
+  id: ID!
+  from: Bytes!
+  tokens: [MyMemoryToken!]! @derivedFrom(field: "player")
+  totalCountTokens: BigInt!
+}
+
+type Token @entity {
+  id: ID!
+  tokenURI: String!,
+  tokens: [MyMemoryToken!]! @derivedFrom(field: "token")
+  totalCountPlayers: BigInt!
+  howManyFound: BigInt!
 }
