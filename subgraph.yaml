@@ -1,27 +1,25 @@
 specVersion: 0.0.2
-description: MyToken for SKALE
-repository: https://github.com/graphprotocol/example-subgraph
+description: MemoryToken for SKALE
+repository: https://github.com/skalenetwork/se-internal/tree/skale-demo/skale-match-game
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: MyToken
+    name: MemoryToken
     network: mainnet
     source:
-      address: 'CONTRACT_ADDRESS'
-      abi: MyToken
+      address: '0xf7796E609704548385B7d0818Dda2bD923759B17'
+      abi: MemoryToken
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.3
       language: wasm/assemblyscript
       entities:
-        - MyToken
+        - MemoryToken
       abis:
-        - name: MyToken
-          file: ./build/contracts/MyToken.json
+        - name: MemoryToken
+          file: ./build/contracts/MemoryToken.json
       eventHandlers:
-        - event: NewToken(uint256,address,uint256)
-          handler: handleNewToken
-        - event: UpdatedToken(uint256,address,uint256)
-          handler: handleUpdatedToken
+        - event: TokenMinted(address,string)
+          handler: handleNewMemoryToken
       file: ./src/mapping.ts

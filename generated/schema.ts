@@ -12,7 +12,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class MyToken extends Entity {
+export class MyMemoryToken extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -20,17 +20,17 @@ export class MyToken extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id !== null, "Cannot save MyToken entity without an ID");
+    assert(id !== null, "Cannot save MyMemoryToken entity without an ID");
     assert(
       id.kind == ValueKind.STRING,
-      "Cannot save MyToken entity with non-string ID. " +
+      "Cannot save MyMemoryToken entity with non-string ID. " +
         'Considering using .toHex() to convert the "id" to a string.'
     );
-    store.set("MyToken", id.toString(), this);
+    store.set("MyMemoryToken", id.toString(), this);
   }
 
-  static load(id: string): MyToken | null {
-    return store.get("MyToken", id) as MyToken | null;
+  static load(id: string): MyMemoryToken | null {
+    return store.get("MyMemoryToken", id) as MyMemoryToken | null;
   }
 
   get id(): string {
@@ -42,21 +42,204 @@ export class MyToken extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get owner(): Bytes {
-    let value = this.get("owner");
+  get from(): Bytes {
+    let value = this.get("from");
     return value.toBytes();
   }
 
-  set owner(value: Bytes) {
-    this.set("owner", Value.fromBytes(value));
+  set from(value: Bytes) {
+    this.set("from", Value.fromBytes(value));
   }
 
-  get tokenValue(): BigInt {
-    let value = this.get("tokenValue");
+  get tokenURI(): string {
+    let value = this.get("tokenURI");
+    return value.toString();
+  }
+
+  set tokenURI(value: string) {
+    this.set("tokenURI", Value.fromString(value));
+  }
+
+  get player(): string {
+    let value = this.get("player");
+    return value.toString();
+  }
+
+  set player(value: string) {
+    this.set("player", Value.fromString(value));
+  }
+
+  get token(): string {
+    let value = this.get("token");
+    return value.toString();
+  }
+
+  set token(value: string) {
+    this.set("token", Value.fromString(value));
+  }
+}
+
+export class MyMemoryTokenMeta extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save MyMemoryTokenMeta entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save MyMemoryTokenMeta entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("MyMemoryTokenMeta", id.toString(), this);
+  }
+
+  static load(id: string): MyMemoryTokenMeta | null {
+    return store.get("MyMemoryTokenMeta", id) as MyMemoryTokenMeta | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get totalPlayerCount(): BigInt {
+    let value = this.get("totalPlayerCount");
     return value.toBigInt();
   }
 
-  set tokenValue(value: BigInt) {
-    this.set("tokenValue", Value.fromBigInt(value));
+  set totalPlayerCount(value: BigInt) {
+    this.set("totalPlayerCount", Value.fromBigInt(value));
+  }
+}
+
+export class Player extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save Player entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save Player entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("Player", id.toString(), this);
+  }
+
+  static load(id: string): Player | null {
+    return store.get("Player", id) as Player | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get from(): Bytes {
+    let value = this.get("from");
+    return value.toBytes();
+  }
+
+  set from(value: Bytes) {
+    this.set("from", Value.fromBytes(value));
+  }
+
+  get tokens(): Array<string> {
+    let value = this.get("tokens");
+    return value.toStringArray();
+  }
+
+  set tokens(value: Array<string>) {
+    this.set("tokens", Value.fromStringArray(value));
+  }
+
+  get totalCountTokens(): BigInt {
+    let value = this.get("totalCountTokens");
+    return value.toBigInt();
+  }
+
+  set totalCountTokens(value: BigInt) {
+    this.set("totalCountTokens", Value.fromBigInt(value));
+  }
+}
+
+export class Token extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save Token entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save Token entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("Token", id.toString(), this);
+  }
+
+  static load(id: string): Token | null {
+    return store.get("Token", id) as Token | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get tokenURI(): string {
+    let value = this.get("tokenURI");
+    return value.toString();
+  }
+
+  set tokenURI(value: string) {
+    this.set("tokenURI", Value.fromString(value));
+  }
+
+  get tokens(): Array<string> {
+    let value = this.get("tokens");
+    return value.toStringArray();
+  }
+
+  set tokens(value: Array<string>) {
+    this.set("tokens", Value.fromStringArray(value));
+  }
+
+  get totalCountPlayers(): BigInt {
+    let value = this.get("totalCountPlayers");
+    return value.toBigInt();
+  }
+
+  set totalCountPlayers(value: BigInt) {
+    this.set("totalCountPlayers", Value.fromBigInt(value));
+  }
+
+  get howManyFound(): BigInt {
+    let value = this.get("howManyFound");
+    return value.toBigInt();
+  }
+
+  set howManyFound(value: BigInt) {
+    this.set("howManyFound", Value.fromBigInt(value));
   }
 }
