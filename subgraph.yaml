@@ -8,7 +8,7 @@ dataSources:
     name: MemoryToken
     network: mainnet
     source:
-      address: '0xf7796E609704548385B7d0818Dda2bD923759B17'
+      address: '0xE35f00c6BB64C021E52a9D22268d1e0645B7E0c8'
       abi: MemoryToken
     mapping:
       kind: ethereum/events
