@@ -1,0 +1,25 @@
+specVersion: 0.0.2
+description: MemoryToken for SKALE
+repository: https://github.com/skalenetwork/se-internal/tree/skale-demo/skale-match-game
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: MemoryToken
+    network: mainnet
+    source:
+      address: '0xE35f00c6BB64C021E52a9D22268d1e0645B7E0c8'
+      abi: MemoryToken
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      entities:
+        - MemoryToken
+      abis:
+        - name: MemoryToken
+          file: ./build/contracts/MemoryToken.json
+      eventHandlers:
+        - event: TokenMinted(address,string)
+          handler: handleNewMemoryToken
+      file: ./src/mapping.ts

@@ -1,0 +1,42 @@
+{
+  "name": "test-chains",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "repository": "https://github.com/graphprotocol/MemoryToken-subgraph",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "build-contract": "solc contracts/Gravity.sol --abi -o abis --overwrite && solc contracts/Gravity.sol --bin -o bin --overwrite",
+    "create": "graph create MemoryToken --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create MemoryToken --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "remove-local": "graph remove MemoryToken --node http://127.0.0.1:8020",
+    "redeploy-local": "graph remove MemoryToken --node http://127.0.0.1:8020 && graph codegen && graph create MemoryToken --node http://127.0.0.1:8020 && graph deploy MemoryToken --ipfs http://localhost:5001 --node http://127.0.0.1:8020 ",
+    "deploy": "graph deploy MemoryToken --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy-local": "graph deploy MemoryToken --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "truffle": "^5.1.11",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "@graphprotocol/graph-cli": "^0.17.1",
+    "@graphprotocol/graph-ts": "^0.17.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "dotenv": "^8.2.0",
+    "ganache-cli": "^6.9.0",
+    "mocha": "^6.2.2",
+    "node-fetch": "^2.6.0",
+    "solc": "^0.5.13",
+    "truffle-contract": "^4.0.31",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.2.6"
+  }
+}
