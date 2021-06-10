@@ -182,8 +182,6 @@ yarn run redeploy-local
 
 # Example Subgraph Test on SKALE
 
-> !!!WARNING!!! April 23 2020 , Currently graph protocol doesn't work with SKALE Chain. Contact SKALE Engineering for the bug update. follow these steps if the bug is fixed:
-
 ### 1. GET SKALE Chain : https://skale.network/innovators-signup
 
 ### 2. Follow everything in Ganache steps only difference is change this line to SKALE Chain in docker-compose.yml: 
