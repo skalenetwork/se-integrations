@@ -1,0 +1,27 @@
+specVersion: 0.0.2
+description: MyToken for SKALE
+repository: https://github.com/graphprotocol/example-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: MyToken
+    network: mainnet
+    source:
+      address: 'CONTRACT_ADDRESS'
+      abi: MyToken
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      entities:
+        - MyToken
+      abis:
+        - name: MyToken
+          file: ./build/contracts/MyToken.json
+      eventHandlers:
+        - event: NewToken(uint256,address,uint256)
+          handler: handleNewToken
+        - event: UpdatedToken(uint256,address,uint256)
+          handler: handleUpdatedToken
+      file: ./src/mapping.ts
