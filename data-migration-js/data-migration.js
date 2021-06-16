@@ -23,12 +23,12 @@ const options = {
         chainId: 0xfd74e32e5c5b5,
     },
     credentials: {
-        id: '23730483-0e46-4a23-a60c-b4af24632f9d',
-        secret: '170kXXzk3MQsMFnnhYPRvViNe8epfWNmG3T86o2xxQKLStzhsCH1y9gx2GykneKcJ4'
+        id: 'Secret Key ID',
+        secret: 'Secret Key'
     }
 };
 
-const provider = bitski.getProvider("8a98469d-2d5f-4290-8709-96f9277c228d", options);
+const provider = bitski.getProvider("Client ID", options);
 let web3 = new Web3(provider);
 
 

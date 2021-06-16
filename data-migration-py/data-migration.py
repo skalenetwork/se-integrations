@@ -2,12 +2,12 @@ import json
 import requests
 from requests.exceptions import HTTPError
 from datetime import datetime
-from config import ENDPOINT, SCHAIN_ENDPOINT, SCHAIN_PRIVATE_KEY
+from config import SCHAIN_ENDPOINT, SCHAIN_PRIVATE_KEY
 from web3 import Web3
 import logging
 logger = logging.getLogger(__name__)
 now = datetime.now()
-web3 = Web3(Web3.HTTPProvider(ENDPOINT))
+web3 = Web3(Web3.HTTPProvider(SCHAIN_ENDPOINT))
 
 
 
@@ -30,7 +30,7 @@ def get_response( api_call):
 
 
 
-def send_tx(web3, tx_to, amount, tx_from,tx_input,  gas_price=None):
+def send_tx(tx_to, amount, tx_from,tx_input,  gas_price=None):
     print(f'Check nonce for {tx_from}' )
     eth_nonce = get_eth_nonce(web3, tx_from)
     print(f'Transaction nonce {eth_nonce}')
@@ -53,11 +53,11 @@ def send_tx(web3, tx_to, amount, tx_from,tx_input,  gas_price=None):
         f'ETH transfer {tx_from} => {tx_to}, {amount} wei,'
         f'tx: {web3.toHex(tx)}'
     )
-    return w3.eth.waitForTransactionReceipt(web3.toHex(tx))
+    return web3.eth.waitForTransactionReceipt(web3.toHex(tx))
 
 
 
-def get_eth_nonce(web3, address):
+def get_eth_nonce(address):
     return web3.eth.getTransactionCount(address)
 
 
@@ -78,8 +78,7 @@ try:
             tx_value =tx["value"]
             print("Input for transaction: ", tx_from, tx_to, tx_input)
             tx_from =  Web3.toChecksumAddress('0xc4B8929609AC322648C6C87F0E5978Ea8236b392')
-            w3 = Web3(Web3.HTTPProvider(SCHAIN_ENDPOINT))
-            receipt = send_tx(w3, tx_to, web3.toHex(web3.toWei("0.001", "ether")), tx_from,tx["input"])
+            receipt = send_tx( tx_to, web3.toHex(web3.toWei("0.001", "ether")), tx_from,tx["input"])
             print(f'tx receipt {receipt}')
     else:
         logger.info(f'No new transactions')
