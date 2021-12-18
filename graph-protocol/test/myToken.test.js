@@ -66,9 +66,18 @@ describe ('MyToken', () => {
       await deployedContract.methods.createToken(DEFAULT_VAL).send(rawTx);
       const value = await deployedContract.methods.getTokenBalance(account).call();
       assert.equal(value, DEFAULT_VAL);
-      await deployedContract.methods.setTokenValue(UPDATE_VAL).send(rawTx);
-      const updatedVal = await deployedContract.methods.getTokenBalance(account).call();
-      assert.equal(updatedVal, UPDATE_VAL);
+      });
+
+   it('can update token value', async () => {
+     const rawTx = {
+       from: account,
+       gas: 2000000,
+       gasPrice: 10000000000
+     };
+
+     await deployedContract.methods.setTokenValue(UPDATE_VAL).send(rawTx);
+     const updatedVal = await deployedContract.methods.getTokenBalance(account).call();
+     assert.equal(updatedVal, UPDATE_VAL);
     });
 });
 
