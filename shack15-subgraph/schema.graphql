@@ -1,0 +1,9 @@
+type MyShack15NFTToken @entity {
+  id: ID!
+  from: Bytes!
+  type: Int!
+  tokenURI: String
+  amount: BigInt
+  used: BigInt
+}
+

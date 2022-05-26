@@ -1,0 +1,47 @@
+{
+  "name": "shack15-tog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.1",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@skalenetwork/filestorage.js": "1.0.0-develop.0",
+    "@toruslabs/torus-embed": "^1.12.1",
+    "clsx": "latest",
+    "dotenv": "^10.0.0",
+    "ethers": "^5.1.0",
+    "graphql": "^15.6.1",
+    "hardhat": "^2.6.1",
+    "material-ui-image": "^3.3.2",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-scripts": "latest",
+    "urql": "^2.0.5",
+    "web3": "^1.5.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-perfect-scrollbar": "^1.5.8"
+  }
+}
