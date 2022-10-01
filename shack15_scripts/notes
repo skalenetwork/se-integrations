@@ -1,0 +1,33 @@
+// baseURI == https://staging-v2.skalenodes.com/fs/roasted-thankful-unukalhai/c88856aaa172152b7f10ad28443c372033165246/Shack15/
+// id = {number/name}
+// tokenURI == baseURI + id
+
+// https://staging-v2.skalenodes.com/fs/roasted-thankful-unukalhai/c88856aaa172152b7f10ad28443c372033165246/Shack15/file_{id}.json
+
+// file_{id}.json
+
+
+// return string(abi.encodePacked(_imagepath(),id, _tokenURI));
+
+// string public owner fileType = '.json';
+
+//     function tokenURI(uint256 _tokenId) public view virtual override returns (string memory) {
+//         require(_exists(tokenId), "Must provide a tokenId");
+//        // string memory _tokenURI = _tokenURIs[tokenId];
+//         string memory base = _imagepath(_tokenId);
+//         // If there is no base URI, return the token URI.
+//         if (bytes(base).length == 0) {
+//             return _tokenId;
+//         }
+//         // If both are set, concatenate the baseURI and tokenURI (via abi.encodePacked).
+//         if (bytes(_tokenURI).length > 0) {
+//             return string(abi.encodePacked(base,fileType));
+//         }
+
+//         return super.tokenURI(tokenId);
+//     }
+
+//     function tokenURI(uint256 _tokenId) public view returns (string memory) {
+//         require(_exists(tokenId), "Must provide a tokenId");
+//         string memory base = _imagepath(_tokenId);
+//         return string(abi.encodePacked(base,fileType));

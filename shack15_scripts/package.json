@@ -1,0 +1,17 @@
+{
+  "name": "shack15token",
+  "version": "1.0.0",
+  "description": "Javascript/ethers scripts for NFT tokens",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "ethers": "^5.0.0",
+    "ts-node": ">=8.0.0",
+    "typechain": "^8.1.0",
+    "typescript": ">=4.5.0"
+  },
+  "author": "",
+  "license": "AGPL-3.0-only"
+}
