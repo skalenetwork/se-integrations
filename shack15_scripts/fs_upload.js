@@ -1,4 +1,10 @@
 #! /usr/bin/env node
+#
+/*
+you wil need this npm packages to execute script
+-npm i web3
+-npm i @skalenetwork/filestorage.js 
+*/
 
 const Filestorage = require("@skalenetwork/filestorage.js");
 const fs = require("fs");
